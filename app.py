@@ -4,17 +4,17 @@ import json
 import requests
 import os
 
-app = Flask(__name__)
-app.secret_key = "botsystematic"
+application = Flask(__name__)
+application.secret_key = "botsystematic"
 
 
 dictionary = {}
-@app.route("/")
+@application.route("/")
 def login():
     return render_template("login.html")
 
 
-@app.route("/enterClass")
+@application.route("/enterClass")
 def enterClass():
     if "username" in session:
         return render_template("class.html", dictionary=dictionary)
@@ -22,7 +22,7 @@ def enterClass():
         return redirect("/")
 
 
-@app.route("/handlecred", methods=['POST'])
+@application.route("/handlecred", methods=['POST'])
 def handlecred():
     if request.method == "POST":
         studid = request.form["studentid"]
@@ -40,7 +40,7 @@ def handlecred():
 
 
 # function for sending textmessages
-@app.route("/sendmessages", methods=["POST"])
+@application.route("/sendmessages", methods=["POST"])
 def sendmessages():
     text = request.form["text"]
     print(text)
@@ -81,7 +81,7 @@ def sendmessages():
 
 
 
-@app.route("/createaccount")
+@application.route("/createaccount")
 def createaccount():
     return "LOL"
 
