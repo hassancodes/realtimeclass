@@ -20,7 +20,7 @@ def getcordlist(image):
 
 
 def getimages():
-    path = glob.glob("cordimages/*.png")
+    path = glob.glob("assets/cordimages/*.png")
     # cv_image will store all the images
     cv_img = []
     for img in path:
@@ -39,10 +39,4 @@ def getimages():
         cv2.circle(large,tuple(point),1,(255,0,0), thickness=10)
     cv2.imshow("output",large)
     cv2.waitKey(0)
-# getimages()
-
-
-
-import requests
-a = requests.get("https://api.muhammadhassa12.repl.co")
-print(a.text)
+getimages()
